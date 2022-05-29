@@ -1,0 +1,17 @@
+install notes
+
+pip install requests
+pip install html5lib
+pip install bs4
+
+
+skincare
+men shoes
+home insurance
+air jordan
+buy furniture online
+credit card
+pest control
+diamond ring
+ps4
+hotel booking
