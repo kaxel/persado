@@ -13,7 +13,7 @@ def parse_keywords(country_code, cursor):
 
         if keyword_results:
             for id, name in keyword_results:
-                str = 'id %(kid)s, name %(kname)s' % {"kid": id, "kname": name }
+                str = 'id {}, name {}' % {"kid": id, "kname": name }
                 print(str)
                 print("response:")
                 ingest_keyword_response(id, name, country_code, cursor)
@@ -24,12 +24,8 @@ def parse_keywords(country_code, cursor):
         print(error)
         return
 
-def add_related_item(keyword, related_title, response_id, cursor):
+def add_related_item(primary_id, related_title, response_id, cursor):
     try:
-        #check for primary keyword
-        sql = "SELECT id from keywords where name='" + keyword + "';" 
-        cursor.execute(sql)
-        primary_id = cursor.fetchone()[0]
         
         #check for related keyword
         sql = "SELECT id from keywords where name='" + related_title + "';" 
@@ -68,6 +64,12 @@ def insert_keyword(keyword, response_id, cursor):
         print(error)
         return
     
+def build_new_response(country_id, keyword_id, page, json_string, cursor):
+    sql = """INSERT INTO search_response(country_id, keyword_id, page, raw)
+             VALUES({}, {}, {}, '{}') RETURNING id;"""
+    cursor.execute(sql.format(country_id, keyword_id, page, json_string))
+    response_id = cursor.fetchone()[0]
+    return response_id
 
 def ingest_keyword_response(id, name, country_code, cursor):
     str = 'ingest keyword id %(kid)s, name %(kname)s' % {"kid": id, "kname": name }
@@ -77,13 +79,29 @@ def ingest_keyword_response(id, name, country_code, cursor):
     json_string = json.loads(resp)
     #print(json_string)
     
+    #find country id
+    print('get country id')
+    sql = "SELECT id from countries where code='" + country_code + "';" 
+    print(sql)
+    cursor.execute(sql)
+    country_id = cursor.fetchone()[0]
+    
+    print('get primary keyword id')
+    #check for primary keyword id
+    sql = "SELECT id from keywords where name='" + name + "';" 
+    print(sql)
+    cursor.execute(sql)
+    primary_id = cursor.fetchone()[0]
+    
     #get response_id
-    response_id = 999
+    print('get response_id')
+    response_id = build_new_response(country_id, primary_id, 1, json_string, cursor)
+    print('response_id {}'.format(response_id))
     
     #process relatedQueries
     for related_query in json_string["result"]["relatedQueries"]:
         print("adding " + related_query["title"])
-        add_related_item(name, related_query["title"], response_id, cursor)
+        add_related_item(primary_id, related_query["title"], response_id, cursor)
         
     
 def get_page(query, country_code):
