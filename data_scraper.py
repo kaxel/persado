@@ -1,6 +1,6 @@
 import psycopg2
 import pycurl
-import requests as HTTPRequest
+import requests
 from urllib.parse import urlencode
 
 API_KEY = 'dce7f59e-26df-4ae3-bda5-e7a039a4a176'
@@ -24,39 +24,39 @@ def ingest_keyword_response(id, name, country_code):
     #get json response from scrapingrobot
     resp = load_json_response(name, country_code)
     
-def get_page(url, data=None):
+def get_page(query, country_code):
     
     try:
-        response = HTTPRequest.post(url, json=data)
-        print(response.status_code)
-    except(Exception) as error:
-        print("get_page exception")
-        print(error)
-        return 
 
-def send_REST_request(api_key, query, country_code):
-    try:
-        url = "https://api.scrapingrobot.com/?token=%s" % (api_key)
-        headers = ["Content-Type:application/json"]
-        
-        #post data - params
-        post_data = {
-         "params": {
-              "query": query,
-              "countryCode": country_code,
-              "languageCode": "es",
-              "num": 1
-         },
-         "module": "GoogleScraper"
+        url = 'https://api.scrapingrobot.com/?token=%(mytoken)s' % {"mytoken": API_KEY}
+
+        payload = {
+            "url":"https://www.google.com/",
+            "params": {
+                "query": query,
+                "countryCode": country_code,
+                "languageCode": "es",
+                "num": 10
+            },
+            "module": "GoogleScraper",
         }
+        headers = {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        }
+        #print("payload:")
+        #print(payload)
 
-        return get_page(url, post_data)
-    except:
-        print("exception")
-        return 
+        response = requests.post(url, json=payload, headers=headers)
+
+        return response.text
+        
+    except(Exception) as error:
+        print(error)
+        return
     
 def load_json_response(query, country_code):
-    return send_REST_request(API_KEY, query, country_code)
+    return get_page(query, country_code.lower())
 
 def connect():
     """ Connect to the PostgreSQL database server """

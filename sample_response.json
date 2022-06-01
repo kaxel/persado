@@ -1,110 +1,221 @@
 {
-  "status": "SUCCESS",
-  "date": "Mon, 1 Jan 2021 12:00:00 GMT",
-  "httpCode": 200,
-  "result": {
-    "searchQuery": {
-      "term": "pizza",
-      "page": 1,
-      "type": "SEARCH",
-      "domain": "google.com",
-      "countryCode": null,
-      "locationUule": null
-    },
-    "url": "https://www.google.com/search?q=pizza&gl=US&region=US&hl=undefined&uule=w+CAIQICIfTmV3IFlvcmssTmV3IFlvcmssVW5pdGVkIFN0YXRlcw==",
-    "hasNextPage": false,
-    "resultsTotal": 1200000000,
-    "relatedQueries": [
-      {
-        "title": "Takeout",
-        "url": "https://www.google.com/search?gl=US&tbm=lcl&q=takeout+food&rflfq=1&num=10&uule=w+CAQQCFISCTsIP9OlT8KJEWL-d-EGjwvI&lsspp=CfbDRXxu_uOi&rlt=Takeout&owsq=pizza&sa=X&ved=2ahUKEwjDrpX9sMP1AhUCr5UCHSiyC90Q9s8CegQILhAF"
-      },
-      {
-        "title": "Delivery",
-        "url": "https://www.google.com/search?gl=US&tbm=lcl&q=Delivery+Food&rflfq=1&num=10&uule=w+CAQQCFISCTsIP9OlT8KJEWL-d-EGjwvI&lsspp=&rlt=Delivery&owsq=pizza&sa=X&ved=2ahUKEwjDrpX9sMP1AhUCr5UCHSiyC90Q9s8CegQILhAI"
-      },
-      {
-        "title": "pizza meaning",
-        "url": "https://www.google.com/search?gl=US&q=Pizza+meaning&sa=X&ved=2ahUKEwjDrpX9sMP1AhUCr5UCHSiyC90Q1QJ6BAggEAE"
-      }
-    ],
-    "paidResults": [
-      {
-        "title": "Blue Apron - 17 Meals Free - Plus Free Shipping",
-        "url": "https://www.blueapron.com/pricing",
-        "displayedUrl": "https://www.blueapron.com/",
-        "description": "Eating Made Easy",
-        "emphasizedKeywords": [],
-        "siteLinks": [
-          {
-            "title": "",
-            "url": "https://www.google.com/aclk?sa=l&ai=DChcSEwjXoqX9sMP1AhUQ7OMHHUuOBmUYABAJGgJ5bQ&sig=AOD64_2QRfbNahCM_racXjaLaK98dxynRw&q=&ved=2ahUKEwjDrpX9sMP1AhUCr5UCHSiyC90Qh78CegQIBBAB&adurl=",
-            "description": null
-          }
-        ]
-      },
-      {
-        "title": "Goldbelly® Gourmet Pizza Kits - Nationwide Delivery",
-        "url": "https://www.goldbelly.com/foods/pizza",
-        "displayedUrl": "https://www.goldbelly.com/gourmet-pizza/delivery",
-        "description": "Shop 200+ Gourmet Pizza Kits by 45+ of America's Best Pizzerias—Shipped...",
-        "emphasizedKeywords": [
-          "Pizza"
-        ],
-        "siteLinks": [
-          {
-            "title": "",
-            "url": "https://www.google.com/aclk?sa=l&ai=DChcSEwjXoqX9sMP1AhUQ7OMHHUuOBmUYABAEGgJ5bQ&sig=AOD64_0n5z1JZPu5sv5r3uC_oxjWghwdpw&q=&ved=2ahUKEwjDrpX9sMP1AhUCr5UCHSiyC90Qh78CegQIAxAB&adurl=",
-            "description": null
-          }
-        ]
-      },
-      {
-        "title": "Pizza Hut® Online Ordering - Easy Online Ordering",
-        "url": "https://www.pizzahut.com/",
-        "displayedUrl": "https://www.pizzahut.com/",
-        "description": "People also search for",
-        "emphasizedKeywords": [],
-        "siteLinks": [
-          {
-            "title": "",
-            "url": "https://www.google.com/aclk?sa=l&ai=DChcSEwjXoqX9sMP1AhUQ7OMHHUuOBmUYABANGgJ5bQ&sig=AOD64_08ubuAuX3hWYgW93DofgfCtRM6FQ&q=&ved=2ahUKEwjDrpX9sMP1AhUCr5UCHSiyC90Qh78CegQIBRAB&adurl=",
-            "description": null
-          }
-        ]
-      },
-      {
-        "title": "Order Delivery or Carry Out - Order Papa Johns® Pizza Today",
-        "url": "https://www.papajohns.com/",
-        "displayedUrl": "https://www.papajohns.com/",
-        "description": "Order Papa Johns® & Enjoy Delicious Handcrafted Pizza. Better Ingredients. Better Pizza.®",
-        "emphasizedKeywords": [
-          "Pizza",
-          "Pizza"
-        ],
-        "siteLinks": []
-      }
-    ],
-    "paidProducts": [],
-    "organicResults": [
-      {
-        "title": "New York City's 29 Most Iconic Pizzerias - Eater NY",
-        "url": "https://ny.eater.com/maps/nyc-best-iconic-pizza-pizzeria",
-        "displayedUrl": "https://ny.eater.com › maps › nyc-best-iconic-pizza-pizzeria",
-        "description": "Louie & Ernie's PizzaMama's Too!Sal & Carmine's PizzaPatsy's PizzaRose & Joe's Italian BakeryRizzo's Fine PizzaNY Pizza SupremaJohn's of Bleecker StreetJoe's PizzaMotorinoPaulie Gee’sFamous Ben's Pizza",
-        "emphasizedKeywords": [],
-        "siteLinks": [],
-        "productInfo": {}
-      }
-    ],
-    "peopleAlsoAsk": [
-      {
-        "question": "Is pizza healthy to eat?",
-        "answer": "",
-        "url": "/search?gl=US&q=Is+pizza+healthy+to+eat?&tbm=isch&source=iu&ictx=1&vet=1&fir=dt8hIRC3EL1W9M%252CQ4AIjDQnPKlCgM%252C_&usg=AI4_-kReOuiFQytqHHHnTW4Lub9XC9btow&sa=X&ved=2ahUKEwjDrpX9sMP1AhUCr5UCHSiyC90Q9QF6BAgrEAE#imgrc=dt8hIRC3EL1W9M",
-        "title": "",
-        "date": ""
-      }
-    ]
-  }
+"status":"SUCCESS",
+"date":"Wed, 01 Jun 2022 16:17:21 GMT",
+"httpCode":0,
+"result":{
+"searchQuery":{
+"term":"skincare",
+"page":1,
+"type":"SEARCH",
+"domain":"google.com",
+"countryCode":"us",
+"languageCode":"es",
+"locationUule":null
+},
+"url":"https://www.google.com/search?q=skincare&gl=US®ion=US&hl=es&uule=w+CAIQICIoQW5jaG9yYWdlLEFuY2hvcmFnZSxBbGFza2EsVW5pdGVkIFN0YXRlcw==",
+"hasNextPage":false,
+"resultsTotal":226000000,
+"relatedQueries":[
+{
+"title":"skincare routine",
+"url":"https://www.google.com/search?gl=US&hl=es&q=Skincare+routine&sa=X&ved=2ahUKEwjpgdbi04z4AhWF34UKHaYkDB4Q1QJ6BAhGEAE"
+},
+{
+"title":"skincare productos",
+"url":"https://www.google.com/search?gl=US&hl=es&q=Skincare+productos&sa=X&ved=2ahUKEwjpgdbi04z4AhWF34UKHaYkDB4Q1QJ6BAhFEAE"
+},
+{
+"title":"image skincare",
+"url":"https://www.google.com/search?gl=US&hl=es&q=IMAGE+Skincare&sa=X&ved=2ahUKEwjpgdbi04z4AhWF34UKHaYkDB4Q1QJ6BAhEEAE"
+},
+{
+"title":"skincare routine steps",
+"url":"https://www.google.com/search?gl=US&hl=es&q=Skincare+routine+steps&sa=X&ved=2ahUKEwjpgdbi04z4AhWF34UKHaYkDB4Q1QJ6BAhDEAE"
+},
+{
+"title":"daily skincare",
+"url":"https://www.google.com/search?gl=US&hl=es&q=Daily+skincare&sa=X&ved=2ahUKEwjpgdbi04z4AhWF34UKHaYkDB4Q1QJ6BAhBEAE"
+},
+{
+"title":"face skin care",
+"url":"https://www.google.com/search?gl=US&hl=es&q=Face+skin+care&sa=X&ved=2ahUKEwjpgdbi04z4AhWF34UKHaYkDB4Q1QJ6BAg8EAE"
+},
+{
+"title":"how to do skincare",
+"url":"https://www.google.com/search?gl=US&hl=es&q=How+to+do+skincare&sa=X&ved=2ahUKEwjpgdbi04z4AhWF34UKHaYkDB4Q1QJ6BAg7EAE"
+},
+{
+"title":"layering skincare",
+"url":"https://www.google.com/search?gl=US&hl=es&q=Layering+skincare&sa=X&ved=2ahUKEwjpgdbi04z4AhWF34UKHaYkDB4Q1QJ6BAg6EAE"
+}
+],
+"paidResults":[
+],
+"paidProducts":[
+],
+"organicResults":[
+{
+"title":"Skincare Products | Sephora",
+"url":"https://www.sephora.com/shop/skincare",
+"displayedUrl":"https://www.sephora.com › shop › skincare",
+"description":"",
+"emphasizedKeywords":[
+],
+"siteLinks":[
+{
+"title":"Skincare Quiz",
+"url":"https://www.sephora.com/beauty/skin-care-quiz"
+},
+{
+"title":"Clean Skincare",
+"url":"https://www.sephora.com/shop/clean-skin-care"
+},
+{
+"title":"Skincare by Age",
+"url":"https://www.sephora.com/beauty/skin-care-by-age"
+},
+{
+"title":"Vegan Skincare",
+"url":"https://www.sephora.com/shop/vegan-skin-care"
+}
+],
+"productInfo":{
+}
+},
+{
+"title":"How to Build a Skin Care Routine - The New York Times",
+"url":"https://www.nytimes.com/guides/tmagazine/skincare-routine",
+"displayedUrl":"https://www.nytimes.com › guides",
+"description":"",
+"emphasizedKeywords":[
+],
+"siteLinks":[
+],
+"productInfo":{
+}
+},
+{
+"title":"How to Take Care of Your Skin - Healthline",
+"url":"https://www.healthline.com/health/beauty-skin-care/skin-types-care",
+"displayedUrl":"https://www.healthline.com › health",
+"description":"Building a daily skin care routine · 1. Cleansing: Choose a cleanser that doesn't leave your skin tight after washing. · 2. Serums: A serum with vitamin C or ...",
+"emphasizedKeywords":[
+"skin care"
+],
+"siteLinks":[
+],
+"productInfo":{
+}
+},
+{
+"title":"Clinical Grade Skincare- Image Skincare Online",
+"url":"https://imageskincare.com/",
+"displayedUrl":"https://imageskincare.com",
+"description":"We are a clinical-grade skincare brand powered by safe, proven ingredients and smart botanicals - to give you the healthiest skin.",
+"emphasizedKeywords":[
+"skincare"
+],
+"siteLinks":[
+],
+"productInfo":{
+}
+},
+{
+"title":"How to Build the Best Skincare Routine",
+"url":"https://www.goodhousekeeping.com/beauty/anti-aging/a22850819/best-skincare-routine/",
+"displayedUrl":"https://www.goodhousekeeping.com › ...",
+"description":"",
+"emphasizedKeywords":[
+],
+"siteLinks":[
+],
+"productInfo":{
+}
+},
+{
+"title":"Skin Care Products | Ulta Beauty",
+"url":"https://www.ulta.com/shop/skin-care",
+"displayedUrl":"https://www.ulta.com › shop › skin...",
+"description":"",
+"emphasizedKeywords":[
+],
+"siteLinks":[
+],
+"productInfo":{
+}
+},
+{
+"title":"Proven Skincare",
+"url":"https://www.provenskincare.com/",
+"displayedUrl":"https://www.provenskincare.com",
+"description":"",
+"emphasizedKeywords":[
+],
+"siteLinks":[
+],
+"productInfo":{
+}
+},
+{
+"title":"Everything You Need to Know About Skincare - Byrdie",
+"url":"https://www.byrdie.com/skincare-4628417",
+"displayedUrl":"https://www.byrdie.com › skincare-...",
+"description":"",
+"emphasizedKeywords":[
+],
+"siteLinks":[
+],
+"productInfo":{
+}
+}
+],
+"peopleAlsoAsk":[
+{
+"question":"",
+"answer":"It's two words. Many two-word phrases have turned into single words in recent years, but that's not one of them.",
+"title":"",
+"date":"29 abr 2016"
+},
+{
+"question":"Which brand is best for skincare?",
+"answer":"",
+"url":"/search?gl=US&hl=es&q=Which+brand+is+best+for+skincare?&tbm=isch&source=iu&ictx=1&vet=1&fir=WVkVWeqRzZlqCM%252C9w390vN982wLzM%252C_&usg=AI4_-kTbySLuX5neWD9nhbSQlyN4llr-kQ&sa=X&ved=2ahUKEwjpgdbi04z4AhWF34UKHaYkDB4Q9QF6BAgtEAE#imgrc=WVkVWeqRzZlqCM",
+"title":"",
+"date":""
+},
+{
+"question":"Más elementos\\u2026",
+"answer":"The 38 Best Skincare Brands Worth Adding to Your Beauty Line-Up1 CeraVe. Amazon. SHOP AT AMAZON. ... 2 Avène. Avène. SHOP AT DERMSTORE. ... 3 Biossance. Biossance. $58 AT SEPHORA. ... 4 Olay. Olay. SHOP AT OLAY. ... 5 Dr. Barbara Sturm. Nordstrom. ... 6 Augustinus Bader. Augustinus Bader. ... 7 U Beauty. Violet Grey. ... 8 Versed. Dermstore.Más elementos\\u2026•",
+"url":"https://www.harpersbazaar.com/beauty/skin-care/g19738338/best-skin-care-brands/",
+"title":"",
+"date":"1 mar 2022"
+},
+{
+"question":"What is basic skincare?",
+"answer":"",
+"url":"/search?gl=US&hl=es&q=What+is+basic+skincare?&tbm=isch&source=iu&ictx=1&vet=1&fir=xu_KQQBTaDRlyM%252Cc1QRk77gaAa1IM%252C_&usg=AI4_-kS-rpPiP_aIb2hBBDr4BqYurse_Vw&sa=X&ved=2ahUKEwjpgdbi04z4AhWF34UKHaYkDB4Q9QF6BAguEAE#imgrc=xu_KQQBTaDRlyM",
+"title":"",
+"date":""
+},
+{
+"question":"",
+"answer":"The three basic skin-care routine steps are cleansing, moisturizing, and applying sunscreen (look for at least SPF 30 and \\u201cbroad spectrum\\u201d on the label). Your morning skin-care routine should include those basics: washing with a cleanser, slathering on a moisturizer, then putting on your sunscreen, says Dr. Skotnicki.",
+"title":"",
+"date":"28 feb 2022"
+},
+{
+"question":"What are the 7 steps of skincare?",
+"answer":"",
+"url":"/search?gl=US&hl=es&q=What+are+the+7+steps+of+skincare?&tbm=isch&source=iu&ictx=1&vet=1&fir=9QYcDCTYQreOZM%252C4zJrq1CRFODN6M%252C_&usg=AI4_-kTWrCcmRG9eKS3HLSx6jI0Rw227qg&sa=X&ved=2ahUKEwjpgdbi04z4AhWF34UKHaYkDB4Q9QF6BAgsEAE#imgrc=9QYcDCTYQreOZM",
+"title":"",
+"date":""
+},
+{
+"question":"",
+"answer":"Plus, some of the products in an evening routine are just best applied at night.Step 1: Oil Cleanser. A Korean skincare routine requires a two-step cleansing process. ... Step 2: Foaming Cleanser. ... Step 3: Exfoliator. ... Step 4: Toner. ... Step 5: Essence/Serums/Treatments. ... Step 6: Sheet Masks. ... Step 7: Eye cream.",
+"title":"",
+"date":"5 abr 2022"
+}
+]
+}
 }
