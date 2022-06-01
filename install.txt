@@ -3,6 +3,8 @@ install notes
 pip install requests
 pip install html5lib
 pip install bs4
+pip install pycurl
+pip install certifi
 
 
 skincare

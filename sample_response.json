@@ -1,0 +1,110 @@
+{
+  "status": "SUCCESS",
+  "date": "Mon, 1 Jan 2021 12:00:00 GMT",
+  "httpCode": 200,
+  "result": {
+    "searchQuery": {
+      "term": "pizza",
+      "page": 1,
+      "type": "SEARCH",
+      "domain": "google.com",
+      "countryCode": null,
+      "locationUule": null
+    },
+    "url": "https://www.google.com/search?q=pizza&gl=US&region=US&hl=undefined&uule=w+CAIQICIfTmV3IFlvcmssTmV3IFlvcmssVW5pdGVkIFN0YXRlcw==",
+    "hasNextPage": false,
+    "resultsTotal": 1200000000,
+    "relatedQueries": [
+      {
+        "title": "Takeout",
+        "url": "https://www.google.com/search?gl=US&tbm=lcl&q=takeout+food&rflfq=1&num=10&uule=w+CAQQCFISCTsIP9OlT8KJEWL-d-EGjwvI&lsspp=CfbDRXxu_uOi&rlt=Takeout&owsq=pizza&sa=X&ved=2ahUKEwjDrpX9sMP1AhUCr5UCHSiyC90Q9s8CegQILhAF"
+      },
+      {
+        "title": "Delivery",
+        "url": "https://www.google.com/search?gl=US&tbm=lcl&q=Delivery+Food&rflfq=1&num=10&uule=w+CAQQCFISCTsIP9OlT8KJEWL-d-EGjwvI&lsspp=&rlt=Delivery&owsq=pizza&sa=X&ved=2ahUKEwjDrpX9sMP1AhUCr5UCHSiyC90Q9s8CegQILhAI"
+      },
+      {
+        "title": "pizza meaning",
+        "url": "https://www.google.com/search?gl=US&q=Pizza+meaning&sa=X&ved=2ahUKEwjDrpX9sMP1AhUCr5UCHSiyC90Q1QJ6BAggEAE"
+      }
+    ],
+    "paidResults": [
+      {
+        "title": "Blue Apron - 17 Meals Free - Plus Free Shipping",
+        "url": "https://www.blueapron.com/pricing",
+        "displayedUrl": "https://www.blueapron.com/",
+        "description": "Eating Made Easy",
+        "emphasizedKeywords": [],
+        "siteLinks": [
+          {
+            "title": "",
+            "url": "https://www.google.com/aclk?sa=l&ai=DChcSEwjXoqX9sMP1AhUQ7OMHHUuOBmUYABAJGgJ5bQ&sig=AOD64_2QRfbNahCM_racXjaLaK98dxynRw&q=&ved=2ahUKEwjDrpX9sMP1AhUCr5UCHSiyC90Qh78CegQIBBAB&adurl=",
+            "description": null
+          }
+        ]
+      },
+      {
+        "title": "Goldbelly® Gourmet Pizza Kits - Nationwide Delivery",
+        "url": "https://www.goldbelly.com/foods/pizza",
+        "displayedUrl": "https://www.goldbelly.com/gourmet-pizza/delivery",
+        "description": "Shop 200+ Gourmet Pizza Kits by 45+ of America's Best Pizzerias—Shipped...",
+        "emphasizedKeywords": [
+          "Pizza"
+        ],
+        "siteLinks": [
+          {
+            "title": "",
+            "url": "https://www.google.com/aclk?sa=l&ai=DChcSEwjXoqX9sMP1AhUQ7OMHHUuOBmUYABAEGgJ5bQ&sig=AOD64_0n5z1JZPu5sv5r3uC_oxjWghwdpw&q=&ved=2ahUKEwjDrpX9sMP1AhUCr5UCHSiyC90Qh78CegQIAxAB&adurl=",
+            "description": null
+          }
+        ]
+      },
+      {
+        "title": "Pizza Hut® Online Ordering - Easy Online Ordering",
+        "url": "https://www.pizzahut.com/",
+        "displayedUrl": "https://www.pizzahut.com/",
+        "description": "People also search for",
+        "emphasizedKeywords": [],
+        "siteLinks": [
+          {
+            "title": "",
+            "url": "https://www.google.com/aclk?sa=l&ai=DChcSEwjXoqX9sMP1AhUQ7OMHHUuOBmUYABANGgJ5bQ&sig=AOD64_08ubuAuX3hWYgW93DofgfCtRM6FQ&q=&ved=2ahUKEwjDrpX9sMP1AhUCr5UCHSiyC90Qh78CegQIBRAB&adurl=",
+            "description": null
+          }
+        ]
+      },
+      {
+        "title": "Order Delivery or Carry Out - Order Papa Johns® Pizza Today",
+        "url": "https://www.papajohns.com/",
+        "displayedUrl": "https://www.papajohns.com/",
+        "description": "Order Papa Johns® & Enjoy Delicious Handcrafted Pizza. Better Ingredients. Better Pizza.®",
+        "emphasizedKeywords": [
+          "Pizza",
+          "Pizza"
+        ],
+        "siteLinks": []
+      }
+    ],
+    "paidProducts": [],
+    "organicResults": [
+      {
+        "title": "New York City's 29 Most Iconic Pizzerias - Eater NY",
+        "url": "https://ny.eater.com/maps/nyc-best-iconic-pizza-pizzeria",
+        "displayedUrl": "https://ny.eater.com › maps › nyc-best-iconic-pizza-pizzeria",
+        "description": "Louie & Ernie's PizzaMama's Too!Sal & Carmine's PizzaPatsy's PizzaRose & Joe's Italian BakeryRizzo's Fine PizzaNY Pizza SupremaJohn's of Bleecker StreetJoe's PizzaMotorinoPaulie Gee’sFamous Ben's Pizza",
+        "emphasizedKeywords": [],
+        "siteLinks": [],
+        "productInfo": {}
+      }
+    ],
+    "peopleAlsoAsk": [
+      {
+        "question": "Is pizza healthy to eat?",
+        "answer": "",
+        "url": "/search?gl=US&q=Is+pizza+healthy+to+eat?&tbm=isch&source=iu&ictx=1&vet=1&fir=dt8hIRC3EL1W9M%252CQ4AIjDQnPKlCgM%252C_&usg=AI4_-kReOuiFQytqHHHnTW4Lub9XC9btow&sa=X&ved=2ahUKEwjDrpX9sMP1AhUCr5UCHSiyC90Q9QF6BAgrEAE#imgrc=dt8hIRC3EL1W9M",
+        "title": "",
+        "date": ""
+      }
+    ]
+  }
+}
