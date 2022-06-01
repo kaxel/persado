@@ -12,6 +12,3 @@ soup_resp = BeautifulSoup(r.content, 'html5lib')
 print(soup_resp.prettify())
 
 #print(URL)
-
-
-#dce7f59e-26df-4ae3-bda5-e7a039a4a176
