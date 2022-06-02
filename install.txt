@@ -1,18 +1,4 @@
-install notes
-
 pip install requests
 pip install html5lib
 pip install bs4
 pip install psycopg2-binary
-
-
-skincare
-men shoes
-home insurance
-air jordan
-buy furniture online
-credit card
-pest control
-diamond ring
-ps4
-hotel booking

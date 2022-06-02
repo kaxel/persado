@@ -103,6 +103,17 @@ def ingest_keyword_response(id, name, country_code, cursor):
         print("adding " + related_query["title"])
         add_related_item(primary_id, related_query["title"], response_id, cursor)
         
+        
+    #process paidResults
+    for paid_result in json_string["result"]["paidResults"]:
+        print("process paid_result " + paid_result["title"])
+        add_ad_item(primary_id, paid_result["title"], paid_result["description"], paid_result["url"], response_id, cursor)
+        
+    #process organicResults
+    for organic_result in json_string["result"]["organicResults"]:
+        print("process organic_result " + organic_result["title"])
+        add_ad_item(primary_id, organic_result["title"], organic_result["description"], paid_result["url"], response_id, cursor)
+        
     
 def get_page(query, country_code):
     
