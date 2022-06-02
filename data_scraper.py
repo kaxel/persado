@@ -1,6 +1,7 @@
 import psycopg2
 import requests
 import json
+from urllib.parse import urlencode
 
 API_KEY = 'dce7f59e-26df-4ae3-bda5-e7a039a4a176'
 
@@ -36,26 +37,22 @@ def add_related_item(primary_id, related_title, response_id, cursor):
                 related_id = int(r)
         else:
             related_id = insert_keyword(related_title, response_id, cursor)
-                
-        str = 'add relation: {} >> {} as {}'.format(keyword, related_title, related_id)
-        print(str)
         
         sql = "INSERT into related_keywords (keyword_search_term_id, keyword_search_related_id, search_response_id) values({}, {}, {})"
         cursor.execute(sql.format(primary_id, related_id, response_id))
-        #results = cursor.fetchone()
         
     except(Exception) as error:
         print(error)
         return
     
             
-def insert_keyword(keyword, response_id, cursor):
-    print("insert keyword " + keyword)
+def insert_keyword(related_title, response_id, cursor):
+    print("insert keyword " + related_title)
     sql = """INSERT INTO keywords(name, level)
              VALUES('{}', 2) RETURNING id;"""
     try:
         # execute the INSERT statement
-        cursor.execute(sql.format(keyword))
+        cursor.execute(sql.format(related_title))
         # get the generated id back
         keyword_id = cursor.fetchone()[0]
         return keyword_id
@@ -64,17 +61,20 @@ def insert_keyword(keyword, response_id, cursor):
         print(error)
         return
     
-def build_new_response(country_id, keyword_id, page, json_string, cursor):
-    sql = """INSERT INTO search_response(country_id, keyword_id, page, raw)
-             VALUES({}, {}, {}, '{}') RETURNING id;"""
-    cursor.execute(sql.format(country_id, keyword_id, page, json_string))
+def build_new_response(country_id, keyword_id, page, cursor):
+    sql = """INSERT INTO search_response(country_id, keyword_id, page)
+             VALUES({}, {}, {}) RETURNING id;"""
+    cursor.execute(sql.format(country_id, keyword_id, page))
     response_id = cursor.fetchone()[0]
     return response_id
+    
+def sanitize(s):
+    return s.replace("'", "")
 
 def add_ad_item(ad_type, title, description, ad_url, response_id, cursor):
     sql = """INSERT INTO ad_items(search_response_id, title, description, url, type)
              VALUES({}, '{}', '{}', '{}', '{}') RETURNING id;"""
-    cursor.execute(sql.format(response_id, title, description, ad_url, ad_type))
+    cursor.execute(sql.format(response_id, sanitize(title), sanitize(description), ad_url, ad_type))
     response_id = cursor.fetchone()[0]
     return response_id
 
@@ -101,7 +101,7 @@ def ingest_keyword_response(id, name, country_code, cursor):
     
     #get response_id
     print('get response_id')
-    response_id = build_new_response(country_id, primary_id, 1, json_string, cursor)
+    response_id = build_new_response(country_id, primary_id, 1, cursor)
     print('response_id {}'.format(response_id))
     
     #process relatedQueries
@@ -109,16 +109,15 @@ def ingest_keyword_response(id, name, country_code, cursor):
         print("adding " + related_query["title"])
         add_related_item(primary_id, related_query["title"], response_id, cursor)
         
-        
     #process paidResults
     for paid_result in json_string["result"]["paidResults"]:
         print("process paid_result " + paid_result["title"])
-        add_ad_item(primary_id, "paid", paid_result["title"], paid_result["description"], paid_result["url"], response_id, cursor)
+        add_ad_item("paid", paid_result["title"], paid_result["description"], paid_result["url"], response_id, cursor)
         
     #process organicResults
     for organic_result in json_string["result"]["organicResults"]:
         print("process organic_result " + organic_result["title"])
-        add_ad_item(primary_id, "organic", organic_result["title"], organic_result["description"], paid_result["url"], response_id, cursor)
+        add_ad_item("organic", organic_result["title"], organic_result["description"], paid_result["url"], response_id, cursor)
         
     
 def get_page(query, country_code):

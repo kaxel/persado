@@ -178,7 +178,6 @@ CREATE TABLE public.search_response (
     created_at timestamp without time zone DEFAULT now() NOT NULL,
     country_id smallint NOT NULL,
     keyword_id integer NOT NULL,
-    raw text NOT NULL,
     page smallint NOT NULL
 );
 
@@ -318,7 +317,7 @@ COPY public.related_keywords (id, created_at, keyword_search_term_id, keyword_se
 -- Data for Name: search_response; Type: TABLE DATA; Schema: public; Owner: knu
 --
 
-COPY public.search_response (id, created_at, country_id, keyword_id, raw, page) FROM stdin;
+COPY public.search_response (id, created_at, country_id, keyword_id, page) FROM stdin;
 \.
 
 
