@@ -1,0 +1,451 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 14.3
+-- Dumped by pg_dump version 14.3
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: ad_items; Type: TABLE; Schema: public; Owner: knu
+--
+
+CREATE TABLE public.ad_items (
+    id integer NOT NULL,
+    created_at timestamp without time zone DEFAULT now() NOT NULL,
+    search_response_id bigint NOT NULL,
+    title character varying(90) NOT NULL,
+    description character varying(255) NOT NULL,
+    url character varying(100),
+    type character varying(20) NOT NULL
+);
+
+
+ALTER TABLE public.ad_items OWNER TO knu;
+
+--
+-- Name: ad_items_id_seq; Type: SEQUENCE; Schema: public; Owner: knu
+--
+
+CREATE SEQUENCE public.ad_items_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.ad_items_id_seq OWNER TO knu;
+
+--
+-- Name: ad_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: knu
+--
+
+ALTER SEQUENCE public.ad_items_id_seq OWNED BY public.ad_items.id;
+
+
+--
+-- Name: countries; Type: TABLE; Schema: public; Owner: knu
+--
+
+CREATE TABLE public.countries (
+    id smallint NOT NULL,
+    created_at timestamp without time zone DEFAULT now() NOT NULL,
+    name character varying(40) NOT NULL,
+    code character varying(2) NOT NULL,
+    primary_lang character varying(20)
+);
+
+
+ALTER TABLE public.countries OWNER TO knu;
+
+--
+-- Name: countries_id_seq; Type: SEQUENCE; Schema: public; Owner: knu
+--
+
+CREATE SEQUENCE public.countries_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.countries_id_seq OWNER TO knu;
+
+--
+-- Name: countries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: knu
+--
+
+ALTER SEQUENCE public.countries_id_seq OWNED BY public.countries.id;
+
+
+--
+-- Name: keywords; Type: TABLE; Schema: public; Owner: knu
+--
+
+CREATE TABLE public.keywords (
+    id integer NOT NULL,
+    created_at timestamp without time zone DEFAULT now() NOT NULL,
+    name character varying(100) NOT NULL,
+    level smallint
+);
+
+
+ALTER TABLE public.keywords OWNER TO knu;
+
+--
+-- Name: keywords_id_seq; Type: SEQUENCE; Schema: public; Owner: knu
+--
+
+CREATE SEQUENCE public.keywords_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.keywords_id_seq OWNER TO knu;
+
+--
+-- Name: keywords_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: knu
+--
+
+ALTER SEQUENCE public.keywords_id_seq OWNED BY public.keywords.id;
+
+
+--
+-- Name: related_keywords; Type: TABLE; Schema: public; Owner: knu
+--
+
+CREATE TABLE public.related_keywords (
+    id bigint NOT NULL,
+    created_at timestamp without time zone DEFAULT now() NOT NULL,
+    keyword_search_term_id integer NOT NULL,
+    keyword_search_related_id integer NOT NULL,
+    search_response_id bigint NOT NULL
+);
+
+
+ALTER TABLE public.related_keywords OWNER TO knu;
+
+--
+-- Name: related_keywords_id_seq; Type: SEQUENCE; Schema: public; Owner: knu
+--
+
+CREATE SEQUENCE public.related_keywords_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.related_keywords_id_seq OWNER TO knu;
+
+--
+-- Name: related_keywords_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: knu
+--
+
+ALTER SEQUENCE public.related_keywords_id_seq OWNED BY public.related_keywords.id;
+
+
+--
+-- Name: search_response; Type: TABLE; Schema: public; Owner: knu
+--
+
+CREATE TABLE public.search_response (
+    id bigint NOT NULL,
+    created_at timestamp without time zone DEFAULT now() NOT NULL,
+    country_id smallint NOT NULL,
+    keyword_id integer NOT NULL,
+    raw text NOT NULL,
+    page smallint NOT NULL
+);
+
+
+ALTER TABLE public.search_response OWNER TO knu;
+
+--
+-- Name: COLUMN search_response.country_id; Type: COMMENT; Schema: public; Owner: knu
+--
+
+COMMENT ON COLUMN public.search_response.country_id IS 'FK';
+
+
+--
+-- Name: COLUMN search_response.keyword_id; Type: COMMENT; Schema: public; Owner: knu
+--
+
+COMMENT ON COLUMN public.search_response.keyword_id IS 'FK';
+
+
+--
+-- Name: search_response_id_seq; Type: SEQUENCE; Schema: public; Owner: knu
+--
+
+CREATE SEQUENCE public.search_response_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.search_response_id_seq OWNER TO knu;
+
+--
+-- Name: search_response_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: knu
+--
+
+ALTER SEQUENCE public.search_response_id_seq OWNED BY public.search_response.id;
+
+
+--
+-- Name: ad_items id; Type: DEFAULT; Schema: public; Owner: knu
+--
+
+ALTER TABLE ONLY public.ad_items ALTER COLUMN id SET DEFAULT nextval('public.ad_items_id_seq'::regclass);
+
+
+--
+-- Name: countries id; Type: DEFAULT; Schema: public; Owner: knu
+--
+
+ALTER TABLE ONLY public.countries ALTER COLUMN id SET DEFAULT nextval('public.countries_id_seq'::regclass);
+
+
+--
+-- Name: keywords id; Type: DEFAULT; Schema: public; Owner: knu
+--
+
+ALTER TABLE ONLY public.keywords ALTER COLUMN id SET DEFAULT nextval('public.keywords_id_seq'::regclass);
+
+
+--
+-- Name: related_keywords id; Type: DEFAULT; Schema: public; Owner: knu
+--
+
+ALTER TABLE ONLY public.related_keywords ALTER COLUMN id SET DEFAULT nextval('public.related_keywords_id_seq'::regclass);
+
+
+--
+-- Name: search_response id; Type: DEFAULT; Schema: public; Owner: knu
+--
+
+ALTER TABLE ONLY public.search_response ALTER COLUMN id SET DEFAULT nextval('public.search_response_id_seq'::regclass);
+
+
+--
+-- Data for Name: ad_items; Type: TABLE DATA; Schema: public; Owner: knu
+--
+
+COPY public.ad_items (id, created_at, search_response_id, title, description, url, type) FROM stdin;
+\.
+
+
+--
+-- Data for Name: countries; Type: TABLE DATA; Schema: public; Owner: knu
+--
+
+COPY public.countries (id, created_at, name, code, primary_lang) FROM stdin;
+2	2022-05-29 11:40:06.532398	Australia	AU	English
+5	2022-05-29 11:42:25.628019	Canada	CA	English
+8	2022-05-29 11:42:25.628019	Ireland	IE	English
+12	2022-05-29 11:44:53.469455	New Zealand	NZ	English
+15	2022-05-29 11:44:53.469455	United Kingdom	GB	English
+1	2022-05-29 11:40:06.532398	Argentina	AR	Spanish
+4	2022-05-29 11:42:25.628019	Brazil	BR	Spanish
+6	2022-05-29 11:42:25.628019	Costa Rica	CR	Spanish
+10	2022-05-29 11:44:53.469455	Mexico	MX	Spanish
+13	2022-05-29 11:44:53.469455	Puerto Rico	PR	Spanish
+14	2022-05-29 11:44:53.469455	Spain	ES	Spanish
+3	2022-05-29 11:40:06.532398	Austria	AT	German
+7	2022-05-29 11:42:25.628019	France	FR	French
+9	2022-05-29 11:42:25.628019	Israel	IL	Hebrew
+11	2022-05-29 11:44:53.469455	Netherlands	NL	Dutch
+16	2022-06-01 15:51:58.764976	United States	US	English
+\.
+
+
+--
+-- Data for Name: keywords; Type: TABLE DATA; Schema: public; Owner: knu
+--
+
+COPY public.keywords (id, created_at, name, level) FROM stdin;
+1	2022-05-29 11:31:22.720012	skincare	1
+2	2022-05-29 11:31:42.910763	men shoes	1
+3	2022-05-29 11:32:28.606901	home insurance	1
+4	2022-05-29 11:32:28.606901	air jordan	1
+5	2022-05-29 11:32:28.606901	buy furniture online	1
+6	2022-05-29 11:33:05.221791	credit card	1
+7	2022-05-29 11:33:05.221791	pest control	1
+8	2022-05-29 11:33:05.221791	diamond ring	1
+9	2022-05-29 11:33:24.076191	ps4	1
+10	2022-05-29 11:33:24.076191	hotel booking	1
+\.
+
+
+--
+-- Data for Name: related_keywords; Type: TABLE DATA; Schema: public; Owner: knu
+--
+
+COPY public.related_keywords (id, created_at, keyword_search_term_id, keyword_search_related_id, search_response_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: search_response; Type: TABLE DATA; Schema: public; Owner: knu
+--
+
+COPY public.search_response (id, created_at, country_id, keyword_id, raw, page) FROM stdin;
+\.
+
+
+--
+-- Name: ad_items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: knu
+--
+
+SELECT pg_catalog.setval('public.ad_items_id_seq', 1, false);
+
+
+--
+-- Name: countries_id_seq; Type: SEQUENCE SET; Schema: public; Owner: knu
+--
+
+SELECT pg_catalog.setval('public.countries_id_seq', 16, true);
+
+
+--
+-- Name: keywords_id_seq; Type: SEQUENCE SET; Schema: public; Owner: knu
+--
+
+SELECT pg_catalog.setval('public.keywords_id_seq', 26, true);
+
+
+--
+-- Name: related_keywords_id_seq; Type: SEQUENCE SET; Schema: public; Owner: knu
+--
+
+SELECT pg_catalog.setval('public.related_keywords_id_seq', 8, true);
+
+
+--
+-- Name: search_response_id_seq; Type: SEQUENCE SET; Schema: public; Owner: knu
+--
+
+SELECT pg_catalog.setval('public.search_response_id_seq', 1, true);
+
+
+--
+-- Name: ad_items ad_items_pkey; Type: CONSTRAINT; Schema: public; Owner: knu
+--
+
+ALTER TABLE ONLY public.ad_items
+    ADD CONSTRAINT ad_items_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: countries countries_pkey; Type: CONSTRAINT; Schema: public; Owner: knu
+--
+
+ALTER TABLE ONLY public.countries
+    ADD CONSTRAINT countries_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: keywords keywords_pkey; Type: CONSTRAINT; Schema: public; Owner: knu
+--
+
+ALTER TABLE ONLY public.keywords
+    ADD CONSTRAINT keywords_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: related_keywords related_keywords_pkey; Type: CONSTRAINT; Schema: public; Owner: knu
+--
+
+ALTER TABLE ONLY public.related_keywords
+    ADD CONSTRAINT related_keywords_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: search_response search_response_pkey; Type: CONSTRAINT; Schema: public; Owner: knu
+--
+
+ALTER TABLE ONLY public.search_response
+    ADD CONSTRAINT search_response_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: ad_items ad_items_fk_parent; Type: FK CONSTRAINT; Schema: public; Owner: knu
+--
+
+ALTER TABLE ONLY public.ad_items
+    ADD CONSTRAINT ad_items_fk_parent FOREIGN KEY (search_response_id) REFERENCES public.search_response(id);
+
+
+--
+-- Name: related_keywords related_keywords_fk_keyword1; Type: FK CONSTRAINT; Schema: public; Owner: knu
+--
+
+ALTER TABLE ONLY public.related_keywords
+    ADD CONSTRAINT related_keywords_fk_keyword1 FOREIGN KEY (keyword_search_term_id) REFERENCES public.keywords(id);
+
+
+--
+-- Name: related_keywords related_keywords_fk_keyword2; Type: FK CONSTRAINT; Schema: public; Owner: knu
+--
+
+ALTER TABLE ONLY public.related_keywords
+    ADD CONSTRAINT related_keywords_fk_keyword2 FOREIGN KEY (keyword_search_related_id) REFERENCES public.keywords(id);
+
+
+--
+-- Name: related_keywords search_response_fk; Type: FK CONSTRAINT; Schema: public; Owner: knu
+--
+
+ALTER TABLE ONLY public.related_keywords
+    ADD CONSTRAINT search_response_fk FOREIGN KEY (search_response_id) REFERENCES public.search_response(id);
+
+
+--
+-- Name: search_response search_response_fk_country; Type: FK CONSTRAINT; Schema: public; Owner: knu
+--
+
+ALTER TABLE ONLY public.search_response
+    ADD CONSTRAINT search_response_fk_country FOREIGN KEY (country_id) REFERENCES public.countries(id);
+
+
+--
+-- Name: search_response search_response_fk_keyword; Type: FK CONSTRAINT; Schema: public; Owner: knu
+--
+
+ALTER TABLE ONLY public.search_response
+    ADD CONSTRAINT search_response_fk_keyword FOREIGN KEY (keyword_id) REFERENCES public.keywords(id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+

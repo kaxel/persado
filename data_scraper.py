@@ -71,13 +71,19 @@ def build_new_response(country_id, keyword_id, page, json_string, cursor):
     response_id = cursor.fetchone()[0]
     return response_id
 
+def add_ad_item(ad_type, title, description, ad_url, response_id, cursor):
+    sql = """INSERT INTO ad_items(search_response_id, title, description, url, type)
+             VALUES({}, '{}', '{}', '{}', '{}') RETURNING id;"""
+    cursor.execute(sql.format(response_id, title, description, ad_url, ad_type))
+    response_id = cursor.fetchone()[0]
+    return response_id
+
 def ingest_keyword_response(id, name, country_code, cursor):
     str = 'ingest keyword id %(kid)s, name %(kname)s' % {"kid": id, "kname": name }
     print(str)
     #get json response from scrapingrobot
     resp = get_page(name, country_code.lower())
     json_string = json.loads(resp)
-    #print(json_string)
     
     #find country id
     print('get country id')
@@ -107,12 +113,12 @@ def ingest_keyword_response(id, name, country_code, cursor):
     #process paidResults
     for paid_result in json_string["result"]["paidResults"]:
         print("process paid_result " + paid_result["title"])
-        add_ad_item(primary_id, paid_result["title"], paid_result["description"], paid_result["url"], response_id, cursor)
+        add_ad_item(primary_id, "paid", paid_result["title"], paid_result["description"], paid_result["url"], response_id, cursor)
         
     #process organicResults
     for organic_result in json_string["result"]["organicResults"]:
         print("process organic_result " + organic_result["title"])
-        add_ad_item(primary_id, organic_result["title"], organic_result["description"], paid_result["url"], response_id, cursor)
+        add_ad_item(primary_id, "organic", organic_result["title"], organic_result["description"], paid_result["url"], response_id, cursor)
         
     
 def get_page(query, country_code):
