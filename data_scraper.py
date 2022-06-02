@@ -14,12 +14,7 @@ def parse_keywords(country_code, cursor):
 
         if keyword_results:
             for id, name in keyword_results:
-                str = 'id {}, name {}' % {"kid": id, "kname": name }
-                print(str)
-                print("response:")
                 ingest_keyword_response(id, name, country_code, cursor)
-            
-                return
             
     except(Exception) as error:
         print(error)
@@ -117,7 +112,7 @@ def ingest_keyword_response(id, name, country_code, cursor):
     #process organicResults
     for organic_result in json_string["result"]["organicResults"]:
         print("process organic_result " + organic_result["title"])
-        add_ad_item("organic", organic_result["title"], organic_result["description"], paid_result["url"], response_id, cursor)
+        add_ad_item("organic", organic_result["title"], organic_result["description"], organic_result["url"], response_id, cursor)
         
     
 def get_page(query, country_code):
@@ -132,7 +127,7 @@ def get_page(query, country_code):
                 "query": query,
                 "countryCode": country_code,
                 "languageCode": "es",
-                "num": 10
+                "num": 100
             },
             "module": "GoogleScraper",
         }
@@ -166,7 +161,19 @@ def connect():
         db_version = cur.fetchone()
         print(db_version)
         
-        parse_keywords("US", cur)
+        country_query = "SELECT UPPER(code) code FROM countries where primary_lang='{}'"
+        sql = country_query.format('English')
+        print(sql)
+        cur.execute(sql)
+        country_results = cur.fetchall()
+        
+        if country_results:
+            for country in country_results:
+                print("new country")
+                print(country[0])
+                parse_keywords(country[0], cur)
+        
+        
        
 	# close the PostgreSQL connection
         cur.close()
